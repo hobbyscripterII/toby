@@ -14,9 +14,9 @@ public interface ConnectionMaker {
 class DConnectionMaker implements ConnectionMaker {
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
+        Class.forName("org.mariadb.jdbc.Driver");
         log.info("DConnectionMaker");
-        return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
+        return DriverManager.getConnection("jdbc:mariadb://localhost:3306/toby", "root", "green502");
     }
 }
 
@@ -24,8 +24,8 @@ class DConnectionMaker implements ConnectionMaker {
 class NConnectionMaker implements ConnectionMaker {
     @Override
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        log.info("NConnectionMaker");
-        return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
+        Class.forName("org.mariadb.jdbc.Driver");
+        log.info("DConnectionMaker");
+        return DriverManager.getConnection("jdbc:mariadb://localhost:3306/toby", "root", "green502");
     }
 }
